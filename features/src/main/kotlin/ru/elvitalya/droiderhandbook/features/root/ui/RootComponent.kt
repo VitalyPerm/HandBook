@@ -18,5 +18,6 @@ interface RootComponent {
 
     sealed interface Child {
         class Pokemons(val component: PokemonsComponent) : Child
+        class Auth(val component: AuthComponent): Child
     }
 }
