@@ -27,7 +27,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "MobileUp Android Template"
+rootProject.name = "DroiderHandBook"
 
 include(":app")
 include(":core")

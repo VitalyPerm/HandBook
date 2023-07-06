@@ -10,11 +10,11 @@ android {
     val minSdkVersion: Int by rootProject.extra
     val targetSdkVersion: Int by rootProject.extra
 
-    namespace = "ru.mobileup.template"
+    namespace = "ru.elvitalya.droiderhandbook"
     compileSdk = targetSdkVersion
 
     defaultConfig {
-        applicationId = "ru.mobileup.template"
+        applicationId = "ru.elvitalya.droiderhandbook"
         minSdk = minSdkVersion
         targetSdk = targetSdkVersion
         versionCode = 1
