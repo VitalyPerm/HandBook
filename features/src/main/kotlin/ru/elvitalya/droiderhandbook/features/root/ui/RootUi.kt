@@ -12,6 +12,7 @@ import com.arkivanov.decompose.extensions.compose.jetpack.stack.Children
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ru.elvitalya.droiderhandbook.core.message.ui.MessageUi
 import ru.elvitalya.droiderhandbook.core.theme.AppTheme
+import ru.elvitalya.droiderhandbook.features.auth.ui.AuthsUI
 import ru.elvitalya.droiderhandbook.features.pokemons.ui.PokemonsUi
 
 @Composable
@@ -26,6 +27,7 @@ fun RootUi(
     Children(childStack, modifier) { child ->
         when (val instance = child.instance) {
             is RootComponent.Child.Pokemons -> PokemonsUi(instance.component)
+            is RootComponent.Child.Auth -> AuthsUI(instance.component)
         }
     }
 

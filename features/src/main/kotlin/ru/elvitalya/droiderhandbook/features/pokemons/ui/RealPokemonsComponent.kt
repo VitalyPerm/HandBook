@@ -6,6 +6,7 @@ import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.push
 import kotlinx.parcelize.Parcelize
+import ru.elvitalya.droiderhandbook.core.ComponentFactory
 import ru.elvitalya.droiderhandbook.core.utils.toStateFlow
 import ru.elvitalya.droiderhandbook.features.pokemons.createPokemonDetailsComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.createPokemonListComponent
@@ -14,7 +15,7 @@ import ru.elvitalya.droiderhandbook.features.pokemons.ui.list.PokemonListCompone
 
 class RealPokemonsComponent(
     componentContext: ComponentContext,
-    private val componentFactory: ru.elvitalya.droiderhandbook.core.ComponentFactory
+    private val componentFactory: ComponentFactory
 ) : ComponentContext by componentContext, PokemonsComponent {
 
     private val navigation = StackNavigation<ChildConfig>()

@@ -1,15 +1,13 @@
-package ru.elvitalya.droiderhandbook.features.auth.ui.login
+package ru.elvitalya.droiderhandbook.features.auth.ui.registration
 
 import com.arkivanov.decompose.ComponentContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import ru.elvitalya.droiderhandbook.core.utils.LoadableState
 import ru.elvitalya.droiderhandbook.core.utils.ViewState
 
-class RealLoginComponent(
+class RealRegistrationComponent(
     componentContext: ComponentContext
-) : ComponentContext by componentContext, LoginComponent {
-
+) : ComponentContext by componentContext, RegistrationComponent {
 
     override val errorMessage = MutableStateFlow("")
 
@@ -36,7 +34,7 @@ class RealLoginComponent(
             email.value.length > 5 && email.value.contains("@") && password.value.length > 6
     }
 
-    override fun login() {
+    override fun registration() {
         // todo api call
     }
 }

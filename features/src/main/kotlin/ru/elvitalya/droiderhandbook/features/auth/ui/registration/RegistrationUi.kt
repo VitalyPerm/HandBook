@@ -1,4 +1,4 @@
-package ru.elvitalya.droiderhandbook.features.auth.ui.login
+package ru.elvitalya.droiderhandbook.features.auth.ui.registration
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
@@ -28,15 +28,15 @@ import ru.elvitalya.droiderhandbook.features.auth.ui.AuthErrorCard
 import ru.elvitalya.droiderhandbook.features.auth.ui.LoginPassInput
 
 @Composable
-fun LoginUI(
-    loginComponent: LoginComponent,
+fun RegistrationUi(
+    component: RegistrationComponent,
     modifier: Modifier = Modifier
 ) {
-    val state by loginComponent.viewState.collectAsState()
-    val email by loginComponent.email.collectAsState()
-    val password by loginComponent.password.collectAsState()
-    val authButtonEnabled by loginComponent.authButtonEnabled.collectAsState()
-    val errorMessage by loginComponent.errorMessage.collectAsState()
+    val state by component.viewState.collectAsState()
+    val email by component.email.collectAsState()
+    val password by component.password.collectAsState()
+    val authButtonEnabled by component.authButtonEnabled.collectAsState()
+    val errorMessage by component.errorMessage.collectAsState()
 
 
     Surface(
@@ -46,10 +46,10 @@ fun LoginUI(
         Screen(
             state = state,
             email = email,
-            onEmailInputChanged = loginComponent::onEmailInputChanged,
+            onEmailInputChanged = component::onEmailInputChanged,
             password = password,
-            onPassInputChanged = loginComponent::onPassInputChanged,
-            onAuthClick = loginComponent::login,
+            onPassInputChanged = component::onPassInputChanged,
+            onRegistrationClick = component::registration,
             errorMessage = errorMessage,
             authButtonEnabled = authButtonEnabled
         )
@@ -63,7 +63,7 @@ private fun Screen(
     onEmailInputChanged: (String) -> Unit,
     password: String,
     onPassInputChanged: (String) -> Unit,
-    onAuthClick: () -> Unit,
+    onRegistrationClick: () -> Unit,
     errorMessage: String,
     authButtonEnabled: Boolean,
 ) {
@@ -76,8 +76,8 @@ private fun Screen(
     ) {
 
         AppBar(
-            title = stringResource(R.string.auth_login),
-            onIconClick = onAuthClick,
+            title = stringResource(R.string.auth_registration),
+            onIconClick = onRegistrationClick,
             icon = Icons.Default.Close
         )
 
@@ -92,7 +92,7 @@ private fun Screen(
                         onEmailInputChanged = onEmailInputChanged,
                         password = password,
                         onPassInputChanged = onPassInputChanged,
-                        onAuthClick = onAuthClick,
+                        onAuthClick = onRegistrationClick,
                         authButtonEnabled = authButtonEnabled
                     )
 
