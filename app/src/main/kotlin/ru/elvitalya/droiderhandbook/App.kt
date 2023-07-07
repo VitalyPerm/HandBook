@@ -5,6 +5,7 @@ import android.content.Context
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.Severity
 import org.koin.core.Koin
+import ru.elvitalya.droiderhandbook.core.ComponentFactory
 import ru.elvitalya.droiderhandbook.core.KoinProvider
 import ru.elvitalya.droiderhandbook.core.debug_tools.DebugTools
 
@@ -31,7 +32,7 @@ class App : Application(), KoinProvider {
             loadModules(allModules)
             declare(this@App as Application)
             declare(this@App as Context)
-            declare(ru.elvitalya.droiderhandbook.core.ComponentFactory(this))
+            declare(ComponentFactory(this))
             createEagerInstances()
         }
     }

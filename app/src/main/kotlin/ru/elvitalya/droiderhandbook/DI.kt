@@ -1,6 +1,9 @@
 package ru.elvitalya.droiderhandbook
 
+import ru.elvitalya.droiderhandbook.core.coreModule
+import ru.elvitalya.droiderhandbook.features.pokemons.pokemonsModule
+
 val allModules = listOf(
-    ru.elvitalya.droiderhandbook.core.coreModule(BuildConfig.BACKEND_URL),
-    ru.elvitalya.droiderhandbook.features.pokemons.pokemonsModule
+    coreModule(BuildConfig.BACKEND_URL),
+    pokemonsModule
 )

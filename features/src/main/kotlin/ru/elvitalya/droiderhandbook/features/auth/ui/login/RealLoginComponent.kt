@@ -1,5 +1,7 @@
 package ru.elvitalya.droiderhandbook.features.auth.ui.login
 
+import android.content.Context
+import androidx.core.content.edit
 import com.arkivanov.decompose.ComponentContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -7,7 +9,8 @@ import ru.elvitalya.droiderhandbook.core.utils.LoadableState
 import ru.elvitalya.droiderhandbook.core.utils.ViewState
 
 class RealLoginComponent(
-    componentContext: ComponentContext
+    componentContext: ComponentContext,
+    private val context: Context
 ) : ComponentContext by componentContext, LoginComponent {
 
 
@@ -37,6 +40,9 @@ class RealLoginComponent(
     }
 
     override fun login() {
-        // todo api call
+        val sherPrefs = context.getSharedPreferences("test", Context.MODE_PRIVATE)
+        sherPrefs.edit {
+            putBoolean("auth", true)
+        }
     }
 }

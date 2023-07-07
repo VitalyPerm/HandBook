@@ -1,5 +1,6 @@
 package ru.elvitalya.droiderhandbook.features.auth
 
+
 import com.arkivanov.decompose.ComponentContext
 import org.koin.core.component.get
 import org.koin.dsl.module
@@ -29,8 +30,8 @@ fun ComponentFactory.createSelectAuthMethodComponent(
 
 fun ComponentFactory.createLoginComponent(
     componentContext: ComponentContext,
-): LoginComponent = RealLoginComponent(componentContext)
+): LoginComponent = RealLoginComponent(componentContext, get())
 
 fun ComponentFactory.createRegistrationComponent(
     componentContext: ComponentContext
-): RegistrationComponent = RealRegistrationComponent(componentContext)
+): RegistrationComponent = RealRegistrationComponent(componentContext, get())

@@ -47,6 +47,7 @@ fun coreModule(backendUrl: String) = module {
         ErrorCollector { debugTools.collectNetworkError(it) }
     }
     single(createdAtStart = true) { PermissionService(get(), get()) }
+
 }
 
 fun ComponentFactory.createMessageComponent(
