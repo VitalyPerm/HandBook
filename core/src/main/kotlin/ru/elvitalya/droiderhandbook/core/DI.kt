@@ -14,12 +14,16 @@ import ru.elvitalya.droiderhandbook.core.message.data.MessageService
 import ru.elvitalya.droiderhandbook.core.message.data.MessageServiceImpl
 import ru.elvitalya.droiderhandbook.core.message.ui.MessageComponent
 import ru.elvitalya.droiderhandbook.core.message.ui.RealMessageComponent
+import ru.elvitalya.droiderhandbook.core.network.DroiderHandBookApiFactory
 import ru.elvitalya.droiderhandbook.core.network.ErrorCollector
 import ru.elvitalya.droiderhandbook.core.network.NetworkApiFactory
 import ru.elvitalya.droiderhandbook.core.network.createOkHttpEngine
 import ru.elvitalya.droiderhandbook.core.permissions.PermissionService
 
-fun coreModule(backendUrl: String) = module {
+fun coreModule(
+    pokemonUrl: String,
+    droiderHandBookUrl: String
+) = module {
     single { ActivityProvider() }
     single<NetworkConnectivityProvider> { AndroidNetworkConnectivityProvider(get()) }
     single { ReplicaClient(get()) }
@@ -37,7 +41,16 @@ fun coreModule(backendUrl: String) = module {
         NetworkApiFactory(
             //loggingEnabled = BuildConfig.DEBUG,
             loggingEnabled = true,
-            backendUrl = backendUrl,
+            backendUrl = pokemonUrl,
+            httpClientEngine = get(),
+            errorCollector = get()
+        )
+    }
+
+    single {
+        DroiderHandBookApiFactory(
+            loggingEnabled = true,
+            droiderHandBookUrl = droiderHandBookUrl,
             httpClientEngine = get(),
             errorCollector = get()
         )

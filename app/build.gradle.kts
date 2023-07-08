@@ -53,11 +53,13 @@ android {
         create("dev") {
             dimension = "backend"
             buildConfigField("String", "BACKEND_URL", "\"https://pokeapi.co/\"")
+            buildConfigField("String", "DROIDER_HANDBOOK_URL", "\"https://script.google.com/macros/s/AKfycbw2HqeDRjPpA3XdtEYpeiQ_oMr_I-iupPaAQR7to9wEiWZZk_uzhK5-RxxEBbh5j-Fmeg/\"")
         }
 
         create("prod") {
             dimension = "backend"
             buildConfigField("String", "BACKEND_URL", "\"https://pokeapi.co/\"")
+            buildConfigField("String", "DROIDER_HANDBOOK_URL", "\"https://script.google.com/macros/s/AKfycbw2HqeDRjPpA3XdtEYpeiQ_oMr_I-iupPaAQR7to9wEiWZZk_uzhK5-RxxEBbh5j-Fmeg/\"")
         }
     }
 
