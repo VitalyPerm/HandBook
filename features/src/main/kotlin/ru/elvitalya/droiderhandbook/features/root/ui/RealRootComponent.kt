@@ -10,6 +10,7 @@ import ru.elvitalya.droiderhandbook.core.ComponentFactory
 import ru.elvitalya.droiderhandbook.core.createMessageComponent
 import ru.elvitalya.droiderhandbook.core.utils.toStateFlow
 import ru.elvitalya.droiderhandbook.features.auth.createAuthsComponent
+import ru.elvitalya.droiderhandbook.features.auth.createSectionsComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.createPokemonsComponent
 
 class RealRootComponent(
@@ -21,7 +22,7 @@ class RealRootComponent(
 
     override val childStack = childStack(
         source = navigation,
-        initialConfiguration = ChildConfig.Auths,
+        initialConfiguration = ChildConfig.Sections,
         handleBackButton = true,
         childFactory = ::createChild
     ).toStateFlow(lifecycle)
@@ -43,6 +44,10 @@ class RealRootComponent(
         ChildConfig.Auths -> RootComponent.Child.Auth(
             componentFactory.createAuthsComponent(componentContext)
         )
+
+        ChildConfig.Sections -> RootComponent.Child.Sections(
+            componentFactory.createSectionsComponent(componentContext)
+        )
     }
 
     sealed interface ChildConfig : Parcelable {
@@ -52,5 +57,8 @@ class RealRootComponent(
 
         @Parcelize
         object Auths: ChildConfig
+
+        @Parcelize
+        object Sections: ChildConfig
     }
 }

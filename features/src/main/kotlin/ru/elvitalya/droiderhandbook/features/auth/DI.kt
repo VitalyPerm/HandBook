@@ -13,6 +13,8 @@ import ru.elvitalya.droiderhandbook.features.auth.ui.registration.RealRegistrati
 import ru.elvitalya.droiderhandbook.features.auth.ui.registration.RegistrationComponent
 import ru.elvitalya.droiderhandbook.features.auth.ui.select_method.RealSelectMethodComponent
 import ru.elvitalya.droiderhandbook.features.auth.ui.select_method.SelectMethodComponent
+import ru.elvitalya.droiderhandbook.features.sections.ui.RealSectionsComponent
+import ru.elvitalya.droiderhandbook.features.sections.ui.SectionsComponent
 
 val authsModule = module {
 
@@ -21,6 +23,10 @@ val authsModule = module {
 fun ComponentFactory.createAuthsComponent(
     componentContext: ComponentContext
 ): AuthsComponent = RealAuthsComponent(componentContext, get())
+
+fun ComponentFactory.createSectionsComponent(
+    componentContext: ComponentContext
+): SectionsComponent = RealSectionsComponent(componentContext, get())
 
 fun ComponentFactory.createSelectAuthMethodComponent(
     componentContext: ComponentContext,

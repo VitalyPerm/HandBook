@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 import ru.elvitalya.droiderhandbook.features.sections.domain.Question
 
 
+@Serializable
 class QuestionResponseWrapper(
     @SerialName("items") val questions: List<QuestionResponse>
 )

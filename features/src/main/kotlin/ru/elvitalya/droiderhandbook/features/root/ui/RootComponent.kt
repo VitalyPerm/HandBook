@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.StateFlow
 import ru.elvitalya.droiderhandbook.core.message.ui.MessageComponent
 import ru.elvitalya.droiderhandbook.features.auth.ui.AuthsComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.ui.PokemonsComponent
+import ru.elvitalya.droiderhandbook.features.sections.ui.SectionsComponent
 
 /**
  * A root of a Decompose component tree.
@@ -20,5 +21,6 @@ interface RootComponent {
     sealed interface Child {
         class Pokemons(val component: PokemonsComponent) : Child
         class Auth(val component: AuthsComponent): Child
+        class Sections(val component: SectionsComponent): Child
     }
 }

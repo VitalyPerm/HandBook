@@ -14,6 +14,7 @@ import ru.elvitalya.droiderhandbook.core.message.ui.MessageUi
 import ru.elvitalya.droiderhandbook.core.theme.AppTheme
 import ru.elvitalya.droiderhandbook.features.auth.ui.AuthsUI
 import ru.elvitalya.droiderhandbook.features.pokemons.ui.PokemonsUi
+import ru.elvitalya.droiderhandbook.features.sections.ui.SectionsUi
 
 @Composable
 fun RootUi(
@@ -28,6 +29,7 @@ fun RootUi(
         when (val instance = child.instance) {
             is RootComponent.Child.Pokemons -> PokemonsUi(instance.component)
             is RootComponent.Child.Auth -> AuthsUI(instance.component)
+            is RootComponent.Child.Sections -> SectionsUi(instance.component)
         }
     }
 
