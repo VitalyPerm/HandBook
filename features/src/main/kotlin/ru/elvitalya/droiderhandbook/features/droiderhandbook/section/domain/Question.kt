@@ -9,4 +9,8 @@ data class Question(
     val title: String,
     val text: String,
     val picUrl: String
-) : Parcelable
+) : Parcelable {
+    companion object {
+        val EMPTY = Question(number = 0, title = "", text = "", picUrl = "")
+    }
+}
