@@ -23,6 +23,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.elvitalya.droiderhandbook.core.widget.EmptyPlaceholder
 import ru.elvitalya.droiderhandbook.core.widget.RefreshingProgress
@@ -127,7 +128,7 @@ private fun QuestionTypesRow(
         Column {
             Text(
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                text = stringResource(R.string.pokemons_select_type),
+                text = "Разделы",
                 style = MaterialTheme.typography.h6
             )
             Row(
@@ -174,4 +175,11 @@ private fun QuestionTypeItem(
             modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
         )
     }
+}
+
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+private fun Preview() {
+    QuestionsListUi(FakeQuestionListComponent())
 }

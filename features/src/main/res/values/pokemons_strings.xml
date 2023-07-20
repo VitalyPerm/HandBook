@@ -8,4 +8,7 @@
     <string name="pokemons_types">Types:</string>
     <string name="pokemons_weight">Weight: %.1f</string>
     <string name="pokemons_height">Height: %.1f</string>
+
+    <!-- Questions -->
+    <string name="questions_select_type">Разделы</string>
 </resources>
