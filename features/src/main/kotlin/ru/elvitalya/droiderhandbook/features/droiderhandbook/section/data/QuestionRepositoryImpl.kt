@@ -1,12 +1,12 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data
+package ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data
 
+import QuestionTypeId
 import me.aartikov.replica.client.ReplicaClient
 import me.aartikov.replica.keyed.KeyedReplica
 import me.aartikov.replica.single.ReplicaSettings
 import ru.elvitalya.droiderhandbook.core.network.DroiderHandBookApiFactory
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data.dto.toDomain
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.domain.Question
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.domain.QuestionTypeId
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data.dto.toDomain
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.domain.Question
 import kotlin.time.Duration.Companion.seconds
 
 class QuestionRepositoryImpl(

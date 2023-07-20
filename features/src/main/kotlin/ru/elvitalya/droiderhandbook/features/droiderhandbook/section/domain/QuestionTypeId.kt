@@ -1,11 +1,9 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.domain
-
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @JvmInline
-value class QuestionTypeId(val value: String): Parcelable
+value class QuestionTypeId(val value: String) : Parcelable
 
 data class QuestionType(val id: QuestionTypeId, val name: String) {
     companion object {

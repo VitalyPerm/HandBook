@@ -1,8 +1,8 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data.dto
+package ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.domain.Question
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.domain.Question
 
 
 @Serializable

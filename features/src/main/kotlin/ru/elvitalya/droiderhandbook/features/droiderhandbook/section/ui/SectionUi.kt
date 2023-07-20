@@ -1,6 +1,7 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.ui.list
-/*
+package ru.elvitalya.droiderhandbook.features.droiderhandbook.section.ui
+
 import QuestionType
+import QuestionTypeId
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +25,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.elvitalya.droiderhandbook.core.widget.EmptyPlaceholder
 import ru.elvitalya.droiderhandbook.core.widget.RefreshingProgress
@@ -33,8 +33,8 @@ import ru.elvitalya.droiderhandbook.features.R
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.domain.Question
 
 @Composable
-fun QuestionsListUi(
-    component: QuestionListComponent,
+fun SectionUi(
+    component: SectionComponent,
     modifier: Modifier = Modifier
 ) {
     val questionsState by component.questionsState.collectAsState()
@@ -68,7 +68,43 @@ fun QuestionsListUi(
         }
 
     }
+}
 
+@Composable
+private fun QuestionTypesRow(
+    types: List<QuestionType>,
+    selectedTypeId: QuestionTypeId,
+    onTypeClick: (QuestionTypeId) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        color = MaterialTheme.colors.background,
+        elevation = 4.dp
+    ) {
+        Column {
+            Text(
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                text = "Разделы",
+                style = MaterialTheme.typography.h6
+            )
+            Row(
+                modifier = Modifier
+                    .horizontalScroll(rememberScrollState())
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                types.forEach {
+                    QuestionTypeItem(
+                        type = it,
+                        isSelected = it.id == selectedTypeId,
+                        onClick = { onTypeClick(it.id) }
+                    )
+                }
+            }
+        }
+    }
 }
 
 @Composable
@@ -112,43 +148,6 @@ private fun QuestionItem(
     )
 }
 
-@Composable
-private fun QuestionTypesRow(
-    types: List<QuestionType>,
-    selectedTypeId: QuestionTypeId,
-    onTypeClick: (QuestionTypeId) -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Surface(
-        modifier = modifier.fillMaxWidth(),
-        color = MaterialTheme.colors.background,
-        elevation = 4.dp
-    ) {
-        Column {
-            Text(
-                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                text = "Разделы",
-                style = MaterialTheme.typography.h6
-            )
-            Row(
-                modifier = Modifier
-                    .horizontalScroll(rememberScrollState())
-                    .padding(horizontal = 16.dp, vertical = 12.dp)
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                types.forEach {
-                    QuestionTypeItem(
-                        type = it,
-                        isSelected = it.id == selectedTypeId,
-                        onClick = { onTypeClick(it.id) }
-                    )
-                }
-            }
-        }
-    }
-}
-
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun QuestionTypeItem(
@@ -175,11 +174,3 @@ private fun QuestionTypeItem(
         )
     }
 }
-
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-private fun Preview() {
-    QuestionsListUi(FakeQuestionListComponent())
-}
-*/

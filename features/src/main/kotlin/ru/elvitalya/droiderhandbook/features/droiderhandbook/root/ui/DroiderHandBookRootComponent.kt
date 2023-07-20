@@ -4,7 +4,7 @@ import com.arkivanov.decompose.router.stack.ChildStack
 import kotlinx.coroutines.flow.StateFlow
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.favorite.FavoriteComponent
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.search.SearchComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.SectionComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.ui.SectionComponent
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.test.TestComponent
 
 interface DroiderHandBookRootComponent {

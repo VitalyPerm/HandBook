@@ -11,37 +11,18 @@ import ru.elvitalya.droiderhandbook.features.droiderhandbook.root.ui.DroiderHand
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.root.ui.RealDroiderHandBookRootComponent
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.search.RealSearchComponent
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.search.SearchComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.RealSectionComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.SectionComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data.QuestionRepository
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data.QuestionRepositoryImpl
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data.QuestionsApi
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.domain.Question
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.ui.details.QuestionDetailsComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.ui.details.RealQuestionDetailsComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.ui.list.QuestionListComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.ui.list.RealQuestionListComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data.QuestionRepository
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data.QuestionRepositoryImpl
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data.QuestionsApi
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.ui.RealSectionComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.ui.SectionComponent
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.test.RealTestComponent
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.test.TestComponent
 
 val sectionsModule = module {
     single<QuestionsApi> { get<DroiderHandBookApiFactory>().ktorfit.create() }
     single<QuestionRepository> { QuestionRepositoryImpl(get(), get()) }
-}
-
-fun ComponentFactory.createQuestionListComponent(
-    componentContext: ComponentContext,
-    onOutPut: (QuestionListComponent.OutPut) -> Unit
-): QuestionListComponent {
-    val questionsByTypeReplica = get<QuestionRepository>().questionsByTypeReplica
-    return RealQuestionListComponent(componentContext, onOutPut, questionsByTypeReplica, get())
-}
-
-fun ComponentFactory.createQuestionDetailsComponent(
-    componentContext: ComponentContext,
-    question: Question
-): QuestionDetailsComponent {
-    return RealQuestionDetailsComponent(componentContext, question)
+    single<QuestionRepository> { QuestionRepositoryImpl(get(), get()) }
 }
 
 fun ComponentFactory.createDroiderHandBookRootComponent(
@@ -55,7 +36,10 @@ fun ComponentFactory.createTestComponent(
 
 fun ComponentFactory.createSectionComponent(
     componentContext: ComponentContext
-): SectionComponent = RealSectionComponent(componentContext)
+): SectionComponent {
+    val questionsByTypeReplica = get<QuestionRepository>().questionsByTypeReplica
+    return RealSectionComponent(componentContext, questionsByTypeReplica, get())
+}
 
 fun ComponentFactory.createSearchComponent(
     componentContext: ComponentContext

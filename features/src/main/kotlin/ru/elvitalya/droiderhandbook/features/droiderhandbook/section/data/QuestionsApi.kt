@@ -1,7 +1,7 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data
+package ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data
 
 import de.jensklingenberg.ktorfit.http.GET
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.data.dto.QuestionResponseWrapper
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.data.dto.QuestionResponseWrapper
 
 
 interface QuestionsApi {

@@ -1,4 +1,4 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.domain
+package ru.elvitalya.droiderhandbook.features.droiderhandbook.section.domain
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

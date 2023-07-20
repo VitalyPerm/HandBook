@@ -1,4 +1,4 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.ui.list
+package ru.elvitalya.droiderhandbook.features.droiderhandbook.section.ui
 
 import QuestionType
 import QuestionTypeId
@@ -15,36 +15,11 @@ import ru.elvitalya.droiderhandbook.core.utils.observe
 import ru.elvitalya.droiderhandbook.core.utils.persistent
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.domain.Question
 
-interface QuestionListComponent {
-
-    val types: List<QuestionType>
-
-    val selectedTypeId: StateFlow<QuestionTypeId>
-
-    val questionsState: StateFlow<LoadableState<List<Question>>>
-
-    fun onTypeClick(typeId: QuestionTypeId)
-
-    fun onQuestionClick(question: Question)
-
-    fun onRetryClick()
-
-    fun onRefresh()
-
-    sealed interface OutPut {
-        data class QuestionDetailsRequested(val question: Question): OutPut
-    }
-
-
-}
-
-class RealQuestionListComponent(
+class RealSectionComponent(
     componentContext: ComponentContext,
-    private val onOutput: (QuestionListComponent.OutPut) -> Unit,
     private val questionsByTypeReplica: KeyedReplica<QuestionTypeId, List<Question>>,
     errorHandler: ErrorHandler
-) : ComponentContext by componentContext, QuestionListComponent {
-
+) : ComponentContext by componentContext, SectionComponent {
 
     override val types = listOf(
         QuestionType.Java,
@@ -53,10 +28,10 @@ class RealQuestionListComponent(
         QuestionType.Coroutines,
     )
 
+
     override val selectedTypeId = MutableStateFlow(types[0].id)
 
-
-    override val questionsState = questionsByTypeReplica
+    override val questionsState: StateFlow<LoadableState<List<Question>>> = questionsByTypeReplica
         .keepPreviousData()
         .observe(
             lifecycle,
@@ -76,7 +51,7 @@ class RealQuestionListComponent(
     }
 
     override fun onQuestionClick(question: Question) {
-        onOutput(QuestionListComponent.OutPut.QuestionDetailsRequested(question))
+
     }
 
     override fun onRetryClick() {
@@ -86,6 +61,7 @@ class RealQuestionListComponent(
     override fun onRefresh() {
         questionsByTypeReplica.refresh(selectedTypeId.value)
     }
+
 
     @Parcelize
     private data class PersistentState(

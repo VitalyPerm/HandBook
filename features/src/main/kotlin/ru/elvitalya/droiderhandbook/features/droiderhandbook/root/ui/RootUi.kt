@@ -19,7 +19,7 @@ import com.arkivanov.decompose.extensions.compose.jetpack.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.jetpack.stack.animation.stackAnimation
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.favorite.FavoriteUi
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.search.SearchUi
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.SectionUi
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.section.ui.SectionUi
 import ru.elvitalya.droiderhandbook.features.droiderhandbook.test.TestUi
 
 @Composable
