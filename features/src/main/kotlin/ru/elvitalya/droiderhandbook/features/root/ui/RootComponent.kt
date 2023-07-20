@@ -3,8 +3,8 @@ package ru.elvitalya.droiderhandbook.features.root.ui
 import com.arkivanov.decompose.router.stack.ChildStack
 import kotlinx.coroutines.flow.StateFlow
 import ru.elvitalya.droiderhandbook.core.message.ui.MessageComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.root.ui.DroiderHandBookRootComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.ui.PokemonsComponent
-import ru.elvitalya.droiderhandbook.features.sections.ui.SectionsComponent
 
 /**
  * A root of a Decompose component tree.
@@ -19,6 +19,6 @@ interface RootComponent {
 
     sealed interface Child {
         class Pokemons(val component: PokemonsComponent) : Child
-        class Sections(val component: SectionsComponent): Child
+        class DroiderHandBook(val component: DroiderHandBookRootComponent): Child
     }
 }

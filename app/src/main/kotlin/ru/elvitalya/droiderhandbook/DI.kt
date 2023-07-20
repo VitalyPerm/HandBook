@@ -2,7 +2,7 @@ package ru.elvitalya.droiderhandbook
 
 import ru.elvitalya.droiderhandbook.core.coreModule
 import ru.elvitalya.droiderhandbook.features.pokemons.pokemonsModule
-import ru.elvitalya.droiderhandbook.features.sections.sectionsModule
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.sectionsModule
 
 val allModules = listOf(
     coreModule(

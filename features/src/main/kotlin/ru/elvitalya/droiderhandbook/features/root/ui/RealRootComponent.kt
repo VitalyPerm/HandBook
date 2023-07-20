@@ -9,8 +9,8 @@ import kotlinx.parcelize.Parcelize
 import ru.elvitalya.droiderhandbook.core.ComponentFactory
 import ru.elvitalya.droiderhandbook.core.createMessageComponent
 import ru.elvitalya.droiderhandbook.core.utils.toStateFlow
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.createDroiderHandBookRootComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.createPokemonsComponent
-import ru.elvitalya.droiderhandbook.features.sections.createSectionsComponent
 
 class RealRootComponent(
     componentContext: ComponentContext,
@@ -21,7 +21,7 @@ class RealRootComponent(
 
     override val childStack = childStack(
         source = navigation,
-        initialConfiguration = ChildConfig.Sections,
+        initialConfiguration = ChildConfig.DroiderHandBook,
         handleBackButton = true,
         childFactory = ::createChild
     ).toStateFlow(lifecycle)
@@ -40,8 +40,8 @@ class RealRootComponent(
             )
         }
 
-       is ChildConfig.Sections -> RootComponent.Child.Sections(
-            componentFactory.createSectionsComponent(componentContext)
+        is ChildConfig.DroiderHandBook -> RootComponent.Child.DroiderHandBook(
+            componentFactory.createDroiderHandBookRootComponent(componentContext)
         )
     }
 
@@ -51,6 +51,6 @@ class RealRootComponent(
         object Pokemons : ChildConfig
 
         @Parcelize
-        object Sections: ChildConfig
+        object DroiderHandBook : ChildConfig
     }
 }
