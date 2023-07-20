@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 import ru.elvitalya.droiderhandbook.core.ComponentFactory
 import ru.elvitalya.droiderhandbook.core.createMessageComponent
 import ru.elvitalya.droiderhandbook.core.utils.toStateFlow
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.createDroiderHandBookRootComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.createDroiderHandBookRootComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.createPokemonsComponent
 
 class RealRootComponent(

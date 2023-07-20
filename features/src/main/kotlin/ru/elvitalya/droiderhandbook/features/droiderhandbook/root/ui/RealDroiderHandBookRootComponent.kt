@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.parcelize.Parcelize
 import ru.elvitalya.droiderhandbook.core.ComponentFactory
 import ru.elvitalya.droiderhandbook.core.utils.toStateFlow
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.createFavoriteComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.createSearchComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.createSectionComponent
-import ru.elvitalya.droiderhandbook.features.droiderhandbook.sections.createTestComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.createFavoriteComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.createSearchComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.createSectionComponent
+import ru.elvitalya.droiderhandbook.features.droiderhandbook.createTestComponent
 
 class RealDroiderHandBookRootComponent(
     componentContext: ComponentContext,

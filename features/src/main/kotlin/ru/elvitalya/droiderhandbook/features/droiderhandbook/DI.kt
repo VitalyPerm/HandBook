@@ -1,4 +1,4 @@
-package ru.elvitalya.droiderhandbook.features.droiderhandbook.sections
+package ru.elvitalya.droiderhandbook.features.droiderhandbook
 
 import com.arkivanov.decompose.ComponentContext
 import org.koin.core.component.get
