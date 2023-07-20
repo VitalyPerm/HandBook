@@ -9,9 +9,8 @@ import kotlinx.parcelize.Parcelize
 import ru.elvitalya.droiderhandbook.core.ComponentFactory
 import ru.elvitalya.droiderhandbook.core.createMessageComponent
 import ru.elvitalya.droiderhandbook.core.utils.toStateFlow
-import ru.elvitalya.droiderhandbook.features.auth.createAuthsComponent
-import ru.elvitalya.droiderhandbook.features.auth.createSectionsComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.createPokemonsComponent
+import ru.elvitalya.droiderhandbook.features.sections.createSectionsComponent
 
 class RealRootComponent(
     componentContext: ComponentContext,
@@ -41,11 +40,7 @@ class RealRootComponent(
             )
         }
 
-        ChildConfig.Auths -> RootComponent.Child.Auth(
-            componentFactory.createAuthsComponent(componentContext)
-        )
-
-        ChildConfig.Sections -> RootComponent.Child.Sections(
+       is ChildConfig.Sections -> RootComponent.Child.Sections(
             componentFactory.createSectionsComponent(componentContext)
         )
     }
@@ -54,9 +49,6 @@ class RealRootComponent(
 
         @Parcelize
         object Pokemons : ChildConfig
-
-        @Parcelize
-        object Auths: ChildConfig
 
         @Parcelize
         object Sections: ChildConfig

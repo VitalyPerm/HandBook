@@ -5,7 +5,5 @@ import ru.elvitalya.droiderhandbook.features.sections.domain.Question
 import ru.elvitalya.droiderhandbook.features.sections.domain.QuestionTypeId
 
 interface QuestionRepository {
-
     val questionsByTypeReplica: KeyedReplica<QuestionTypeId, List<Question>>
-
 }

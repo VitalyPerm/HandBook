@@ -14,7 +14,7 @@ import java.io.IOException
 class RealDebugTools(
     context: Context,
     replicaClient: ReplicaClient
-) : ru.elvitalya.droiderhandbook.core.debug_tools.DebugTools {
+) : DebugTools {
 
     private val networkEmulatorInterceptor = NetworkEmulatorInterceptor(
         context,

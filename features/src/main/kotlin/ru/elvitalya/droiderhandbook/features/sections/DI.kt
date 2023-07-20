@@ -9,6 +9,8 @@ import ru.elvitalya.droiderhandbook.features.sections.data.QuestionRepository
 import ru.elvitalya.droiderhandbook.features.sections.data.QuestionRepositoryImpl
 import ru.elvitalya.droiderhandbook.features.sections.data.QuestionsApi
 import ru.elvitalya.droiderhandbook.features.sections.domain.Question
+import ru.elvitalya.droiderhandbook.features.sections.ui.RealSectionsComponent
+import ru.elvitalya.droiderhandbook.features.sections.ui.SectionsComponent
 import ru.elvitalya.droiderhandbook.features.sections.ui.details.QuestionDetailsComponent
 import ru.elvitalya.droiderhandbook.features.sections.ui.details.RealQuestionDetailsComponent
 import ru.elvitalya.droiderhandbook.features.sections.ui.list.QuestionListComponent
@@ -34,15 +36,6 @@ fun ComponentFactory.createQuestionDetailsComponent(
     return RealQuestionDetailsComponent(componentContext, question)
 }
 
-
-
-
-/*
-fun ComponentFactory.createPokemonDetailsComponent(
-    componentContext: ComponentContext,
-    pokemonId: PokemonId
-): PokemonDetailsComponent {
-    val pokemonReplica = get<PokemonRepository>().pokemonByIdReplica.withKey(pokemonId)
-    return RealPokemonDetailsComponent(componentContext, pokemonReplica, get())
-}
- */
+fun ComponentFactory.createSectionsComponent(
+    componentContext: ComponentContext
+): SectionsComponent = RealSectionsComponent(componentContext, get())

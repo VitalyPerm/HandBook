@@ -3,7 +3,6 @@ package ru.elvitalya.droiderhandbook.features.root.ui
 import com.arkivanov.decompose.router.stack.ChildStack
 import kotlinx.coroutines.flow.StateFlow
 import ru.elvitalya.droiderhandbook.core.message.ui.MessageComponent
-import ru.elvitalya.droiderhandbook.features.auth.ui.AuthsComponent
 import ru.elvitalya.droiderhandbook.features.pokemons.ui.PokemonsComponent
 import ru.elvitalya.droiderhandbook.features.sections.ui.SectionsComponent
 
@@ -20,7 +19,6 @@ interface RootComponent {
 
     sealed interface Child {
         class Pokemons(val component: PokemonsComponent) : Child
-        class Auth(val component: AuthsComponent): Child
         class Sections(val component: SectionsComponent): Child
     }
 }

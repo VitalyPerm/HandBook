@@ -30,6 +30,7 @@ class RealQuestionListComponent(
 
     override val selectedTypeId = MutableStateFlow(types[0].id)
 
+
     override val questionsState = questionsByTypeReplica
         .keepPreviousData()
         .observe(
